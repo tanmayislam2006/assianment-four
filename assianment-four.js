@@ -13,13 +13,27 @@ function cashOut(money) {
 }
 // task-2
 function validEmail(email) {
-    if (typeof email=== 'string') {
-        
+    if (typeof email === 'string') {
+        const charecter='-._+@'
+        if (charecter.includes(email[0])) {
+            return false
+        }
+        else if (!email.endsWith('.com')&& !email.includes('@')) {
+            return false
+        }
+        else if(email.includes(' ')){
+            return false
+
+        }
+        else{
+            return true
+        }
     }
     else{
         return "Invalid"
     }
 }
+
 // task3
 function electionResult(votes) {
     if (Array.isArray(votes) === true) {
@@ -55,7 +69,7 @@ function electionResult(votes) {
 }
 // task-4
 function isBestFriend(f1, f2) {
-    if (typeof f1 === 'object' && typeof f2 === 'object') {
+    if (typeof f1 === 'object' && typeof f2 === 'object' && !Array.isArray(f1) && !Array.isArray(f2)) {
         if (f1.roll === f2.bestFriend && f2.roll === f1.bestFriend) {
             return true
 
@@ -79,7 +93,7 @@ function calculateWatchTime(times) {
         }
         let totalTimeSec = 0
         for (const time of times) {
-            if (typeof time === 'number') {
+            if (typeof time === 'number' && time > 0) {
                 totalTimeSec += time
             }
             else {
@@ -104,6 +118,8 @@ function calculateWatchTime(times) {
         return "Invalid"
     }
 }
+
+
 
 
 
